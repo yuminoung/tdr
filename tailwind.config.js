@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'oswald': ['Oswald', 'sans-serif'],
-        'padauk': ['Padauk', 'sans-serif']
+        'padauk': ['Padauk', 'sans-serif'],
+        'jetbrains-mono': ['JetBrains\\ Mono', 'monospace']
       }
     },
   },

@@ -12,13 +12,20 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::latest()->get();
+        if ($query = request()->search) {
+            $products = Product::where('sku', 'LIKE', '%' . $query . '%')
+                ->orWhere('upc', 'LIKE', '%' . $query . '%')
+                ->paginate(50);
+        } else {
+            $products = Product::paginate(50);
+        }
         return view('products.index', ['products' => $products]);
     }
 
     public function show(Product $product)
     {
-        return Excel::download(new CatchExcelExport($product), "{$product->product_sku}.xlsx");
+        // return Excel::download(new CatchExcelExport($product), "{$product->product_sku}.xlsx");
+        return view('products.show', ['product' => $product]);
     }
 
     public function create()

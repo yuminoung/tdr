@@ -11226,6 +11226,10 @@ video {
   font-family: Padauk, sans-serif;
 }
 
+.font-jetbrains-mono {
+  font-family: JetBrains\ Mono, monospace;
+}
+
 .font-thin {
   font-weight: 100;
 }
@@ -41857,6 +41861,10 @@ video {
     font-family: Padauk, sans-serif;
   }
 
+  .sm\:font-jetbrains-mono {
+    font-family: JetBrains\ Mono, monospace;
+  }
+
   .sm\:font-thin {
     font-weight: 100;
   }
@@ -72408,6 +72416,10 @@ video {
 
   .md\:font-padauk {
     font-family: Padauk, sans-serif;
+  }
+
+  .md\:font-jetbrains-mono {
+    font-family: JetBrains\ Mono, monospace;
   }
 
   .md\:font-thin {
@@ -102963,6 +102975,10 @@ video {
     font-family: Padauk, sans-serif;
   }
 
+  .lg\:font-jetbrains-mono {
+    font-family: JetBrains\ Mono, monospace;
+  }
+
   .lg\:font-thin {
     font-weight: 100;
   }
@@ -133516,6 +133532,10 @@ video {
     font-family: Padauk, sans-serif;
   }
 
+  .xl\:font-jetbrains-mono {
+    font-family: JetBrains\ Mono, monospace;
+  }
+
   .xl\:font-thin {
     font-weight: 100;
   }
@@ -164067,6 +164087,10 @@ video {
 
   .\32xl\:font-padauk {
     font-family: Padauk, sans-serif;
+  }
+
+  .\32xl\:font-jetbrains-mono {
+    font-family: JetBrains\ Mono, monospace;
   }
 
   .\32xl\:font-thin {
