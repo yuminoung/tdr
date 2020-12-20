@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-page-header title="PRODUCTS" />
+    <x-page-header title="PRODUCTS">
+        <a href="{{ route('dashboard.index') }}">Dashboard</a>
+        <span>/</span>
+        <a href="{{ route('products.index') }}">Products</a>
+    </x-page-header>
     <div class="flex flex-row justify-between">
         <a href="{{ route('products.create') }}" class="inline-block px-4 py-2 shadow-sm border-gray-300 border rounded-md bg-white focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10">
             Create
@@ -26,23 +30,23 @@
     @else
         @foreach ($products as $product)
             @if($loop->first)
-            <a href="{{ route('products.show', $product) }}"
-                class="block border border-gray-300 px-4 py-2 -mb-px rounded-t-md focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10"
-            >
-                {{$product->sku}}
-            </a>
-            @endif
-            <a href="{{ route('products.show', $product) }}"
-                class="block border border-gray-300 px-4 py-2 -mb-px focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10"
-            >
-                {{$product->sku}}
-            </a>
-            @if($loop->last)
-            <a href="{{ route('products.show', $product) }}"
+                <a href="{{ route('products.show', $product) }}"
+                    class="block border border-gray-300 px-4 py-2 -mb-px rounded-t-md focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10"
+                >
+                    {{$product->sku}}
+                </a>
+            @elseif($loop->last)
+                <a href="{{ route('products.show', $product) }}"
                 class="block border border-gray-300 px-4 py-2 -mb-px rounded-b-md focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10"
-            >
-                {{$product->sku}}
-            </a>
+                >
+                    {{$product->sku}}
+                </a>
+            @else
+                <a href="{{ route('products.show', $product) }}"
+                    class="block border border-gray-300 px-4 py-2 -mb-px focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10"
+                >
+                    {{$product->sku}}
+                </a>
             @endif
         @endforeach
     @endif

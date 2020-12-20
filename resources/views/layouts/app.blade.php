@@ -25,6 +25,7 @@
     <main class="">
         @yield('content')
     </main>
+    <footer class="my-8"></footer>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
