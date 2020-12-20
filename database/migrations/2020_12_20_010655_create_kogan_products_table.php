@@ -17,7 +17,7 @@ class CreateKoganProductsTable extends Migration
             $table->string('category')->nullable();
             $table->integer('stock');
             $table->integer('price');
-            $table->integer('shipping')->default(100);
+            $table->integer('shipping')->default(1000);
             $table->text('images');
             $table->text('description');
             $table->string('subtitle')->nullable();
