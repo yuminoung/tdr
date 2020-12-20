@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\CatchExcelExport;
 use App\Models\Category;
+use App\Models\KoganProduct;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -67,5 +66,17 @@ class ProductController extends Controller
 
     public function generateKogan()
     {
+        $products = Product::all();
+        foreach ($products as $product) {
+            $product->koganProducts()->create([
+                'sku' => $product->sku,
+                'title' => $product->name,
+                'stock' => $product->quantity,
+                'price' => $product->price,
+                'images' => $product->images->implode('path', '|'),
+                'description' => $product->description
+            ]);
+        }
+        return redirect()->route('products.index');
     }
 }

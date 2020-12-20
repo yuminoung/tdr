@@ -16,6 +16,9 @@
     <x-link :route="route('imports.shopify.index')">
         Import From Shopify
     </x-link>
+    <x-link :route="route('exports.kogan')">
+        Export To Kogan
+    </x-link>
 </div>
 
 @endsection

@@ -17,14 +17,14 @@ class CreateKoganProductsTable extends Migration
             $table->string('category')->nullable();
             $table->integer('stock');
             $table->integer('price');
-            $table->integer('shipping')->default(10);
+            $table->integer('shipping')->default(100);
             $table->text('images');
             $table->text('description');
             $table->string('subtitle')->nullable();
             $table->text('inbox')->nullable();
             $table->string('gtin')->nullable();
             $table->string('rrp')->nullable();
-            $table->integer('handling_day')->default(2);
+            $table->integer('handling_days')->default(2);
             $table->timestamps();
         });
     }

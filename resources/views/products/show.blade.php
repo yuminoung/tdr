@@ -9,11 +9,19 @@
         <a href="#">{{ $product->sku }}</a>
     </x-page-header>
 
-    <div class="mb-8">
+    <div class="mb-8 flex flex-row space-x-4">
         <x-link 
             :route="route('products.edit', $product)">
-            Edit
+            <x-icons.edit />
         </x-link>
+        <x-link 
+            :route="route('products.edit', $product)">
+            <x-icons.catch />
+        </x-link>
+        <x-link 
+        :route="route('products.edit', $product)">
+            <x-icons.kogan />
+    </x-link>
     </div>
 
     <div class="flex flex-col space-y-8">
