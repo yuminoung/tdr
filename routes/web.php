@@ -13,6 +13,7 @@ Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])
     ->name('products.create');
+Route::get('products/generate/kogan', [ProductController::class, 'generateKogan']);
 Route::get('products/{product}', [ProductController::class, 'show'])
     ->name('products.show');
 Route::get('products/{product}/edit', [ProductController::class, 'edit'])

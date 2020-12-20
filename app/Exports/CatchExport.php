@@ -6,11 +6,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 
 class CatchExport implements FromCollection
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
     public function collection()
     {
-        //
     }
 }

@@ -38,9 +38,9 @@ class ProductController extends Controller
         ]);
     }
 
-    public function edit()
+    public function edit(Product $product)
     {
-        return view('products.edit');
+        return view('products.edit', ['product' => $product]);
     }
 
     public function store()
@@ -63,5 +63,9 @@ class ProductController extends Controller
         Product::create($attributes);
 
         return redirect()->route('products.index');
+    }
+
+    public function generateKogan()
+    {
     }
 }

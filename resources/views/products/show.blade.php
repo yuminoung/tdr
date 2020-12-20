@@ -9,11 +9,24 @@
         <a href="#">{{ $product->sku }}</a>
     </x-page-header>
 
+    <div class="mb-8">
+        <x-link 
+            :route="route('products.edit', $product)">
+            Edit
+        </x-link>
+    </div>
+
     <div class="flex flex-col space-y-8">
         <div>
             <x-content-header title="Title" />
             <div>
                 {{$product->name}}
+            </div>
+        </div>
+        <div>
+            <x-content-header title="UPC" />
+            <div>
+                {{$product->upc}}
             </div>
         </div>
         <div>
