@@ -17,7 +17,7 @@ class ShopifyImport implements ToCollection, WithHeadingRow
             if (isset($row['variant_sku'])) {
                 $sku = Str::contains($row['variant_sku'], '#') ? $row['variant_sku'] : $row['variant_sku'] . '#';
                 $upc = Str::replaceFirst('\'', '', $row['variant_barcode']);
-                $description = str_replace(array("\r", "\n", " "), '', $row['body_html']);
+                $description = str_replace(array("\r", "\n"), '', $row['body_html']);
                 $product = Product::create([
                     'sku' => $sku,
                     'upc' => $upc,
