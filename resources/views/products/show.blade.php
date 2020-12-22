@@ -8,7 +8,7 @@
         <span>/</span>
         <a href="#">{{ $product->sku }}</a>
     </x-page-header>
-
+    <!-- buttons -->
     <div class="mb-8 flex flex-row space-x-4">
         <x-link 
             :route="route('products.edit', $product)">
@@ -24,7 +24,7 @@
     </x-link>
     </div>
 
-    <div class="flex flex-col space-y-8">
+    <div class="flex flex-col space-y-8 bg-white rounded-md p-4 shadow border border-gray-300">
         <div>
             <x-content-header title="Title" />
             <div>
