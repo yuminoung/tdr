@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductKoganController;
 use Illuminate\Support\Facades\Route;
 
 # DASHBOARD
@@ -23,7 +24,8 @@ Route::get('products/{product}/edit', [ProductController::class, 'edit'])
     ->name('products.edit');
 Route::post('products', [ProductController::class, 'store'])
     ->name('products.store');
-
+Route::get('products/{product}/kogan', [ProductKoganController::class, 'index'])
+    ->name('products.kogan');
 
 # KOGAN
 Route::get('products/generate/kogan', [ProductController::class, 'generateKogan'])

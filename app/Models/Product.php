@@ -16,7 +16,7 @@ class Product extends Model
         return $this->hasMany(Image::class);
     }
 
-    public function koganProducts()
+    public function kogan()
     {
         return $this->hasMany(KoganProduct::class);
     }

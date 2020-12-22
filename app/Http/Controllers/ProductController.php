@@ -71,7 +71,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
         foreach ($products as $product) {
-            $product->koganProducts()->create([
+            $product->kogan()->create([
                 'sku' => $product->sku,
                 'title' => $product->name,
                 'stock' => $product->quantity,
