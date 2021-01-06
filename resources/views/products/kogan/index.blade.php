@@ -11,6 +11,6 @@
     <a href="#">KOGAN</a>
 </x-page-header>
 <div class="p-4 shadow border-gray-300 border bg-white rounded-md">
-    {{$kogan->sku}}\\\{{$kogan->title}}\\\{{$kogan->brand}}\\\{{$kogan->category}}\\\{{$kogan->stock}}\\\{{$kogan->price / 100}}\\\{{$kogan->shipping / 100}}\\\{{$kogan->images}}\\\{{$kogan->description}}\\\{{$kogan->subtitle}}\\\{{$kogan->inbox}}\\\{{$kogan->gtin}}\\\{{$kogan->rrp}}\\\{{$kogan->handling_days}}
+    {{$kogan->sku}}|{{$kogan->title}}|{{$kogan->brand}}|{{$kogan->category}}|{{$kogan->stock}}|{{$kogan->price / 100}}|{{$kogan->shipping / 100}}|{{$kogan->images}}|{{$kogan->description}}|{{$kogan->subtitle}}|{{$kogan->inbox}}|{{$kogan->gtin}}|{{$kogan->rrp}}|{{$kogan->handling_days}}
 </div>
 @endsection

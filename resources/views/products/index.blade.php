@@ -40,9 +40,16 @@
                 </a>
             @else
                 <a href="{{ route('products.show', $product) }}"
-                    class="block border border-gray-300 px-4 py-2 -mb-px focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10"
+                    class="flex flex-row items-center justify-between border border-gray-300 px-4 py-2 -mb-px focus:ring ring-gray-300 focus:border-blue-300 transition ease-in-out duration-300 focus:z-10"
                 >
-                    {{$product->sku}}
+                    <div>
+                        {{$product->sku}}
+                    </div>
+                    @if($product->quantity < 1)
+                        <div class="text-sm text-red-700">
+                            Out of stock
+                        </div>
+                    @endif
                 </a>
             @endif
         @endforeach
