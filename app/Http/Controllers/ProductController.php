@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\KoganProduct;
 use App\Models\Product;
+use Illuminate\Mail\Markdown;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -43,6 +44,13 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return view('products.edit', ['product' => $product]);
+    }
+
+    public function update(Product $product)
+    {
+        $description = Markdown::parse(request()->description);
+        $product->update(['description' => $description]);
+        return redirect()->route('products.show', $product);
     }
 
     public function store()

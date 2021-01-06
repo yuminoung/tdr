@@ -24,6 +24,8 @@ Route::get('products/{product}/edit', [ProductController::class, 'edit'])
     ->name('products.edit');
 Route::post('products', [ProductController::class, 'store'])
     ->name('products.store');
+Route::patch('products/{product}', [ProductController::class, 'update'])
+    ->name('products.update');
 Route::get('products/{product}/kogan', [ProductKoganController::class, 'index'])
     ->name('products.kogan');
 

@@ -21,9 +21,9 @@
             {{$products[0]->sku}}
         </a>
     @elseif($products->count() === 0)
-    <div class="h-32 px-4 py-2 border border-gray-300 rounded-md flex items-center justify-center text-4xl text-gray-400 tracking-widest">
-        NO RESULT
-    </div>
+        <div class="h-32 px-4 py-2 border border-gray-300 rounded-md flex items-center justify-center text-4xl text-gray-400 tracking-widest">
+            NO RESULT
+        </div>
     @else
         @foreach ($products as $product)
             @if($loop->first)
