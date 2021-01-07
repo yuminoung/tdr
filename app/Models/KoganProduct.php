@@ -13,4 +13,9 @@ class KoganProduct extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function presentPrice()
+    {
+        return $this->price / 100;
+    }
 }

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+p {
+    @apply text-sm;
+}
+
+ul {
+    @apply list-disc;
+    @apply list-inside;
+    @apply text-sm;
+}

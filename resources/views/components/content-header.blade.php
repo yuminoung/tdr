@@ -1,3 +1,3 @@
-<h2 class="text-2xl font-jetbrains-mono font-bold">
+<h2 class="text-sm text-gray-700 mb-2">
     {{$title}}
 </h2>

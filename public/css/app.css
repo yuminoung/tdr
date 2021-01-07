@@ -31180,6 +31180,18 @@ video {
           animation: bounce 1s infinite;
 }
 
+p {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

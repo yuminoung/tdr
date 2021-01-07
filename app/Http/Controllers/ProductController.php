@@ -15,10 +15,12 @@ class ProductController extends Controller
         if ($query = request()->search) {
             $products = Product::where('sku', 'LIKE', '%' . $query . '%')
                 ->orWhere('upc', 'LIKE', '%' . $query . '%')
-                ->paginate(50);
+                ->paginate(50)
+                ->appends(request()->query());
         } elseif ($filter = request()->filter) {
             $products = Product::where('sku', 'LIKE', $filter . '%')
-                ->paginate(50);
+                ->paginate(50)
+                ->appends(request()->query());
         } else {
             $products = Product::paginate(50);
         }
