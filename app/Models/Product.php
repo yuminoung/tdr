@@ -21,6 +21,11 @@ class Product extends Model
         return $this->hasMany(KoganProduct::class);
     }
 
+    public function catch()
+    {
+        return $this->hasOne(CatchProduct::class);
+    }
+
     public function presentPrice()
     {
         return '$' . $this->price / 100;

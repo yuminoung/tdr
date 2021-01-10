@@ -5,22 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KoganProduct extends Model
+class CatchProduct extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
-    public function products()
+
+    public function product()
     {
         return $this->belongsTo(Product::class);
     }
 
     public function presentPrice()
     {
-        return $this->price / 100;
+        return '$' . $this->price / 100;
     }
 
     public function presentPlatform()
     {
-        return 'Kogan';
+        return 'Catch';
     }
 }

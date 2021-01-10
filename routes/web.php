@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatchProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExportController;
@@ -33,6 +34,13 @@ Route::get('products/{product}/kogan', [ProductKoganController::class, 'index'])
 Route::get('products/generate/kogan', [ProductController::class, 'generateKogan'])
     ->name('products.generate.kogan');
 
+# CATCH
+Route::get('products/{product}/catch/create', [CatchProductController::class, 'create'])
+    ->name('catch.create');
+Route::post('products/{product}/catch', [CatchProductController::class, 'store'])
+    ->name('catch.store');
+Route::post('products/{product}/catch/download', [CatchProductController::class, 'download'])
+    ->name('catch.download');
 
 # CATEGORIES
 Route::get('/categories', [CategoryController::class, 'index'])

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\KoganProduct;
 use App\Models\Product;
 use Illuminate\Mail\Markdown;
-use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -29,8 +27,11 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        // return Excel::download(new CatchExcelExport($product), "{$product->product_sku}.xlsx");
-        return view('products.show', ['product' => $product]);
+        $listings = $product->kogan;
+        if ($product->catch) {
+            $listings->push($product->catch);
+        }
+        return view('products.show', ['product' => $product, 'listings' => $listings]);
     }
 
     public function create()

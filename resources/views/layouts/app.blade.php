@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
 
-<body class="bg-gray-100 w-3/4 mx-auto font-jetbrains-mono">
+<body class="bg-gray-100 container mx-auto font-jetbrains-mono">
     <header class="my-8">
         <a href="{{ route('dashboard.index') }}" class="block font-jetbrains-mono font-bold text-3xl">
             TDR
@@ -25,7 +25,7 @@
     <main class="">
         @yield('content')
     </main>
-    <footer class="my-8"></footer>
+    <footer class="my-32"></footer>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </body>
