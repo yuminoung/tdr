@@ -59,18 +59,12 @@ class ProductController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'product_catch_category' => 'required',
-            'product_sku' => 'required|unique:products,product_sku',
-            'product_upc' => 'required|unique:products,product_upc',
-            'product_title' => 'required',
-            'product_description' => 'required',
-            'product_brand' => 'required',
-            'product_keywords' => 'required',
-            'product_images' => 'required',
-            'product_price' => 'required',
-            'product_quantity' => 'required',
-            'product_discount_price' => 'required',
-            'product_logistic_class' => 'required'
+            'sku' => 'required',
+            'upc' => 'required',
+            'name' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
+            'description' => 'required',
         ]);
 
         Product::create($attributes);
