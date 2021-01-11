@@ -10,9 +10,6 @@
     <x-link :route="route('products.index')">
         Products
     </x-link>
-    <x-link :route="route('categories.index')">
-        Categories
-    </x-link>
     <x-link :route="route('imports.shopify.index')">
         Import From Shopify
     </x-link>
