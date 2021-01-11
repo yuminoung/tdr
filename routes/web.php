@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CatchProductController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ImportController;
@@ -42,13 +41,13 @@ Route::post('products/{product}/catch', [CatchProductController::class, 'store']
 Route::post('products/{product}/catch/download', [CatchProductController::class, 'download'])
     ->name('catch.download');
 
-# CATEGORIES
-Route::get('/categories', [CategoryController::class, 'index'])
-    ->name('categories.index');
-Route::get('categories/create', [CategoryController::class, 'create'])
-    ->name('categories.create');
-Route::post('categories', [CategoryController::class, 'store'])
-    ->name('categories.store');
+// # CATEGORIES
+// Route::get('/categories', [CategoryController::class, 'index'])
+//     ->name('categories.index');
+// Route::get('categories/create', [CategoryController::class, 'create'])
+//     ->name('categories.create');
+// Route::post('categories', [CategoryController::class, 'store'])
+//     ->name('categories.store');
 
 
 # IMPORT
