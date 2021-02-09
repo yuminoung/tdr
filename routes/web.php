@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard.index');
 
+Route::get('products/import', [ProductController::class, 'import'])->name('products.import');
+Route::post('products/import', [ProductController::class, 'importStore'])->name('products.import.store');
 
 # PRODUCTS
 Route::get('/products', [ProductController::class, 'index'])
@@ -60,3 +62,6 @@ Route::post('imports/shopify', [ImportController::class, 'store'])
 # EXPORT
 Route::get('exports/kogan', [ExportController::class, 'kogan'])
     ->name('exports.kogan');
+
+
+require __DIR__ . '/auth.php';

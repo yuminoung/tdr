@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ProductImport;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Mail\Markdown;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -12,7 +14,6 @@ class ProductController extends Controller
     {
         if ($query = request()->search) {
             $products = Product::where('sku', 'LIKE', '%' . $query . '%')
-                ->orWhere('upc', 'LIKE', '%' . $query . '%')
                 ->paginate(50)
                 ->appends(request()->query());
         } elseif ($filter = request()->filter) {
@@ -67,7 +68,14 @@ class ProductController extends Controller
             'description' => 'required',
         ]);
 
-        Product::create($attributes);
+        Product::create([
+            'sku' => $attributes['sku'],
+            'upc' => $attributes['upc'],
+            'name' => $attributes['name'],
+            'quantity' => $attributes['quantity'],
+            'price' => $attributes['price'] * 100,
+            'description' => $attributes['description']
+        ]);
 
         return redirect()->route('products.index');
     }
@@ -86,5 +94,15 @@ class ProductController extends Controller
             ]);
         }
         return redirect()->route('products.index');
+    }
+
+    public function import()
+    {
+        return view('products.import');
+    }
+
+    public function importStore()
+    {
+        Excel::import(new ProductImport, request()->file('file'));
     }
 }

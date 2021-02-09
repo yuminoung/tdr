@@ -16,12 +16,10 @@
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
 
-<body class="bg-gray-100 font-jetbrains-mono text-lg">
-    @include('layouts.header')
-    <main class="container mx-auto px-4">
+<body class="bg-gray-100 font-jetbrains-mono text-lg flex items-center justify-center h-screen">
+    <main class="w-1/3">
         @yield('content')
     </main>
-    <footer class="my-32"></footer>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </body>
