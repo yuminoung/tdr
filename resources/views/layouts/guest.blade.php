@@ -11,12 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Padauk&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
     <!-- styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
 
-<body class="bg-gray-100 font-jetbrains-mono text-lg flex items-center justify-center h-screen">
+<body class="bg-gray-100 font-inconsolate text-lg flex items-center justify-center h-screen">
     <main class="w-1/3">
         @yield('content')
     </main>

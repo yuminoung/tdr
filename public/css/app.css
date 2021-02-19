@@ -11230,6 +11230,30 @@ video {
   font-family: JetBrains\ Mono, monospace;
 }
 
+.font-reggae-one {
+  font-family: Reggae\ One, cursive;
+}
+
+.font-noto-sans-jp {
+  font-family: Noto\ Sans\ JP, sans-serif;
+}
+
+.font-bebas-neue {
+  font-family: Bebas\ Neue, cursive;
+}
+
+.font-caveat {
+  font-family: Caveat, cursive;
+}
+
+.font-satisfy {
+  font-family: Satisfy, cursive;
+}
+
+.font-inconsolate {
+  font-family: Inconsolata, monospace;
+}
+
 .font-thin {
   font-weight: 100;
 }
@@ -41877,6 +41901,30 @@ ul {
     font-family: JetBrains\ Mono, monospace;
   }
 
+  .sm\:font-reggae-one {
+    font-family: Reggae\ One, cursive;
+  }
+
+  .sm\:font-noto-sans-jp {
+    font-family: Noto\ Sans\ JP, sans-serif;
+  }
+
+  .sm\:font-bebas-neue {
+    font-family: Bebas\ Neue, cursive;
+  }
+
+  .sm\:font-caveat {
+    font-family: Caveat, cursive;
+  }
+
+  .sm\:font-satisfy {
+    font-family: Satisfy, cursive;
+  }
+
+  .sm\:font-inconsolate {
+    font-family: Inconsolata, monospace;
+  }
+
   .sm\:font-thin {
     font-weight: 100;
   }
@@ -72432,6 +72480,30 @@ ul {
 
   .md\:font-jetbrains-mono {
     font-family: JetBrains\ Mono, monospace;
+  }
+
+  .md\:font-reggae-one {
+    font-family: Reggae\ One, cursive;
+  }
+
+  .md\:font-noto-sans-jp {
+    font-family: Noto\ Sans\ JP, sans-serif;
+  }
+
+  .md\:font-bebas-neue {
+    font-family: Bebas\ Neue, cursive;
+  }
+
+  .md\:font-caveat {
+    font-family: Caveat, cursive;
+  }
+
+  .md\:font-satisfy {
+    font-family: Satisfy, cursive;
+  }
+
+  .md\:font-inconsolate {
+    font-family: Inconsolata, monospace;
   }
 
   .md\:font-thin {
@@ -102991,6 +103063,30 @@ ul {
     font-family: JetBrains\ Mono, monospace;
   }
 
+  .lg\:font-reggae-one {
+    font-family: Reggae\ One, cursive;
+  }
+
+  .lg\:font-noto-sans-jp {
+    font-family: Noto\ Sans\ JP, sans-serif;
+  }
+
+  .lg\:font-bebas-neue {
+    font-family: Bebas\ Neue, cursive;
+  }
+
+  .lg\:font-caveat {
+    font-family: Caveat, cursive;
+  }
+
+  .lg\:font-satisfy {
+    font-family: Satisfy, cursive;
+  }
+
+  .lg\:font-inconsolate {
+    font-family: Inconsolata, monospace;
+  }
+
   .lg\:font-thin {
     font-weight: 100;
   }
@@ -133548,6 +133644,30 @@ ul {
     font-family: JetBrains\ Mono, monospace;
   }
 
+  .xl\:font-reggae-one {
+    font-family: Reggae\ One, cursive;
+  }
+
+  .xl\:font-noto-sans-jp {
+    font-family: Noto\ Sans\ JP, sans-serif;
+  }
+
+  .xl\:font-bebas-neue {
+    font-family: Bebas\ Neue, cursive;
+  }
+
+  .xl\:font-caveat {
+    font-family: Caveat, cursive;
+  }
+
+  .xl\:font-satisfy {
+    font-family: Satisfy, cursive;
+  }
+
+  .xl\:font-inconsolate {
+    font-family: Inconsolata, monospace;
+  }
+
   .xl\:font-thin {
     font-weight: 100;
   }
@@ -164103,6 +164223,30 @@ ul {
 
   .\32xl\:font-jetbrains-mono {
     font-family: JetBrains\ Mono, monospace;
+  }
+
+  .\32xl\:font-reggae-one {
+    font-family: Reggae\ One, cursive;
+  }
+
+  .\32xl\:font-noto-sans-jp {
+    font-family: Noto\ Sans\ JP, sans-serif;
+  }
+
+  .\32xl\:font-bebas-neue {
+    font-family: Bebas\ Neue, cursive;
+  }
+
+  .\32xl\:font-caveat {
+    font-family: Caveat, cursive;
+  }
+
+  .\32xl\:font-satisfy {
+    font-family: Satisfy, cursive;
+  }
+
+  .\32xl\:font-inconsolate {
+    font-family: Inconsolata, monospace;
   }
 
   .\32xl\:font-thin {
