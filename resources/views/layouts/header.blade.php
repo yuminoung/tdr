@@ -24,7 +24,7 @@
                         <a href="" class="p-4 hover:bg-gray-600 hover:text-white block">
                             Kogan
                         </a>
-                        <a href="" class="p-4 hover:bg-gray-600 hover:text-white block">
+                        <a href="{{ route('orders.shopify') }}" class="p-4 hover:bg-gray-600 hover:text-white block">
                             Shopify
                         </a>
                     </li>
@@ -38,7 +38,7 @@
             </a>
         </div>
         <a href="" class="text p-4 block hover:bg-gray-600 hover:text-white">
-            Yumin
+            {{ auth()->user()->name }}
         </a>
     </div>
 </header>

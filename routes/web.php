@@ -6,11 +6,23 @@ use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductKoganController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 # DASHBOARD
 Route::get('/', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
     ->name('dashboard.index');
+
+Route::get('/listings/shopify', function () {
+    $response = Http::withHeaders([
+        'Content-Type' => 'application/json',
+        'X-Shopify-Access-Token' => config('services.shopify.secret')
+    ])->get('https://monsterpro.myshopify.com/admin/api/2021-01/products.json?limit=250');
+    // dd($response->json());
+    return view('listings.shopify', ['listings' => $response->json()['products'], 'header' => $response->headers()]);
+})->name('orders.shopify');
+
 
 Route::get('products/import', [ProductController::class, 'import'])->name('products.import');
 Route::post('products/import', [ProductController::class, 'importStore'])->name('products.import.store');
@@ -64,4 +76,4 @@ Route::get('exports/kogan', [ExportController::class, 'kogan'])
     ->name('exports.kogan');
 
 
-require __DIR__ . '/auth.php';
+// require __DIR__ . '/auth.php';

@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'shopify' => [
+        'key' => env('SHOPIFY_API'),
+        'secret' => env('SHOPIFY_PASSWORD')
+    ]
+
 ];
