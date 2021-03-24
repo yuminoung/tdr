@@ -33,6 +33,11 @@ return [
     'shopify' => [
         'key' => env('SHOPIFY_API'),
         'secret' => env('SHOPIFY_PASSWORD')
+    ],
+
+    'kogan' => [
+        'id' => env('KOGAN_ID'),
+        'token' => env('KOGAN_API')
     ]
 
 ];

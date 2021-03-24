@@ -15,68 +15,57 @@
     </x-link>
     <x-search />
 </div>
-<div class="align-middle inline-block min-w-full">
-    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        SKU
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        NAME
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        STOCK
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        AREA
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        LISTINGS
-                    </th>
-                    <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Edit</span>
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                @foreach($products as $product)
-                <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <a href="{{ route('products.show', $product) }}">{{ $product->sku }}</a>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ $product->name }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ $product->stock }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ $product->area }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <div class="flex flex-row items-center space-x-2">
-                            <x-icons.catch />
-                            <x-icons.kogan />
-                            <x-icons.shopify />
-                            <x-icons.ebay />
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+
+<div class="flex flex-col bg-white shadow divide-y divide-gray-200">
+    <div class="p-4 flex bg-gray-700 text-white flex-row space-x-4">
+        <div class="w-1/6">
+            SKU
+        </div>
+        <div class="w-1/6">
+            NAME
+        </div>
+        <div class="w-1/6 text-right">
+            STOCK
+        </div>
+        <div class="w-1/6 text-right">
+            AREA
+        </div>
+        <div class="w-1/6 text-right">
+            WEIGHT
+        </div>
+        <div class="w-1/6"></div>
     </div>
+    @foreach($products as $product)
+    <div class="p-4 flex flex-row hover:bg-yellow-200 space-x-4 items-center">
+        <div class="w-1/6">
+            {{$product->sku}}
+        </div>
+        <div class="w-1/6">
+            {{$product->name}}
+        </div>
+        <div class="w-1/6 text-right">
+            @if($product->stock == 0)
+            <span class="text-red-600">
+                Out of stock
+            </span>
+            @else
+            {{$product->stock}}
+            @endif
+        </div>
+        <div class="w-1/6 text-right">
+            {{$product->area}}
+        </div>
+        <div class="w-1/6 text-right">
+            {{$product->weight}}
+        </div>
+        <div class="w-1/6 justify-end space-x-4 flex flex-row items-center">
+            <a href="#" class="p-2 bg-gray-600 text-white text-sm">Edit</a>
+            <a href="#" class="p-2 bg-gray-600 text-white text-sm">View</a>
+        </div>
+    </div>
+    @endforeach
 </div>
+
 <div class="my-8">
     {{ $products->links() }}
 </div>

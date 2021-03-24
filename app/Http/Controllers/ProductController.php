@@ -80,22 +80,6 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
-    public function generateKogan()
-    {
-        $products = Product::all();
-        foreach ($products as $product) {
-            $product->kogan()->create([
-                'sku' => $product->sku,
-                'title' => $product->name,
-                'stock' => $product->quantity,
-                'price' => $product->price,
-                'images' => $product->images->implode('path', '|'),
-                'description' => $product->description
-            ]);
-        }
-        return redirect()->route('products.index');
-    }
-
     public function import()
     {
         return view('products.import');

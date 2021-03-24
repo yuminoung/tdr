@@ -11,19 +11,14 @@ class Product extends Model
 
     protected $guarded = [];
 
+    public function listings()
+    {
+        return $this->belongsToMany(Listing::class);
+    }
+
     public function images()
     {
-        return $this->hasMany(Image::class);
-    }
-
-    public function kogan()
-    {
-        return $this->hasMany(KoganProduct::class);
-    }
-
-    public function catch()
-    {
-        return $this->hasOne(CatchProduct::class);
+        return $this->morphMany(Image::class, 'imageable');
     }
 
     public function presentPrice()
