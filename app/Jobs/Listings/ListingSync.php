@@ -45,9 +45,10 @@ class ListingSync implements ShouldQueue
 
                 $listing->shopify()->create([
                     'shopify_id' => $product['id'],
+                    'variant_id' => $variant['id'],
                     'title' => $product['title'],
-                    'price' => $variant['compare_at_price'] ?? $variant['price'],
-                    'discount_price' => $variant['compare_at_price'] ? $variant['price'] : null
+                    'price' => $variant['compare_at_price'] ? $variant['compare_at_price'] * 100 : $variant['price'] * 100,
+                    'discount_price' => $variant['compare_at_price'] ? $variant['price'] * 100 : null
                 ]);
 
                 foreach ($product['images'] as $image) {
@@ -70,9 +71,10 @@ class ListingSync implements ShouldQueue
                     ]);
                     $listing->shopify()->create([
                         'shopify_id' => $variant['id'],
+                        'variant_id' => $variant['id'],
                         'title' => $variant['title'],
-                        'price' => $variant['compare_at_price'] ?? $variant['price'],
-                        'discount_price' => $variant['compare_at_price'] ? $variant['price'] : null
+                        'price' => $variant['compare_at_price'] ? $variant['compare_at_price'] * 100 : $variant['price'] * 100,
+                        'discount_price' => $variant['compare_at_price'] ? $variant['price'] * 100 : null
                     ]);
                     foreach ($product['images'] as $image) {
                         $listing->images()->create([

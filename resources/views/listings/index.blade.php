@@ -56,6 +56,7 @@
                     </div>
                 </div>
                 <div class="flex flex-row items-center text-base space-x-4">
+                    @livewire('shopify.discount', ['listing' => $listing->shopify], key($listing->shopify->id))
                     <a href="#">Edit</a>
                     <a href="#">View</a>
                 </div>

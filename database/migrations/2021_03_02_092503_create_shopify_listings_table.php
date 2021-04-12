@@ -12,6 +12,7 @@ class CreateShopifyListingsTable extends Migration
             $table->id();
             $table->foreignId('listing_id');
             $table->string('shopify_id');
+            $table->string('variant_id');
             $table->string('title');
             $table->integer('price');
             $table->integer('discount_price')->nullable();

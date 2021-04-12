@@ -59,7 +59,7 @@
         </form>
     </div>
     <!-- DESCRIPTION -->
-    <div class="flex flex-col divide-gray-200 divide-y bg-white shadow" x-data="{ open: false }">
+    <div class="flex flex-col divide-gray-200 divide-y bg-white shadow" x-data="{open: false}">
         <div class=" flex flex-row items-center justify-between p-4">
             <div class="text-2xl font-bold">
                 Description
@@ -85,10 +85,11 @@
         <div x-show="!open" class="p-4">
             {!! Illuminate\Support\Str::markdown($listing->description) !!}
         </div>
-        <form action="{{ route('listings.update', $listing) }}" x-show="open" method="POST" x-ref="descriptionForm"
-            class="flex flex-col">
+        <form action="{{ route('listings.update', $listing) }}" x-show="open" method="POST" x-ref="descriptionForm">
             <textarea name="description"
-                class="w-full h-64 bg-white p-4 border-0 ring-1 focus:ring focus:ring-gray-600 transition ease-in-out duration-300 focus:outline-none">{{ $listing->description }}</textarea>
+                class="w-full h-64 bg-white p-4 border-0 ring-1 focus:ring focus:ring-gray-600 transition ease-in-out duration-300 focus:outline-none">
+                {{ $listing->description }}
+            </textarea>
             @csrf
             @method('PATCH')
         </form>

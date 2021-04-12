@@ -14,6 +14,8 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    @livewireStyles
+
 </head>
 
 <body class="bg-gray-100 text-xl font-inconsolate">
@@ -26,6 +28,7 @@
     </footer>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    @livewireScripts
 </body>
 
 </html>
