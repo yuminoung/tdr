@@ -2,11 +2,17 @@
 
 @section('content')
 <x-page-header title="LISTINGS">
-    <form action="{{ route('listings.shopify.sync') }}" method="POST">
-        <button class="bg-white rounded shadow px-4 py-2">
-            Sync
+    {{-- <form action="{{ route('listings.shopify.sync') }}" method="POST">
+    <button class="bg-white rounded shadow px-4 py-2">
+        Sync
+    </button>
+    @csrf
+    </form> --}}
+    <form action="{{ route('listings.index') }}" method="GET">
+        <input type="text" name="search">
+        <button>
+            Search
         </button>
-        @csrf
     </form>
 </x-page-header>
 

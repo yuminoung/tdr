@@ -2,29 +2,54 @@
 
 namespace App\Http\Livewire\Shopify;
 
+use Livewire\Component;
 use App\Jobs\Shopify\AddDiscount;
 use App\Jobs\Shopify\RemoveDiscount;
-use Livewire\Component;
+use Illuminate\Support\Facades\Http;
 
 class Discount extends Component
 {
-    public $discount;
     public $listing;
 
     public function mount($listing)
     {
         $this->listing = $listing;
-        $this->discount = $listing->discount_price;
     }
 
     public function addDiscount()
     {
-        AddDiscount::dispatch($this->listing->variant_id);
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'X-Shopify-Access-Token' => config('services.shopify.secret')
+        ])->put("https://monsterpro.myshopify.com/admin/api/2021-04/variants/{$this->listing->variant_id}.json", [
+            'variant' => [
+                'id' => $this->listing->variant_id,
+                'price' => $this->listing->price * 0.9 / 100,
+                'compare_at_price' => $this->listing->price / 100,
+            ]
+        ]);
+        if ($response->status() === 200) {
+            $this->listing->discount_price = $this->listing->price * 0.9;
+            $this->listing->save();
+        }
     }
 
     public function removeDiscount()
     {
-        RemoveDiscount::dispatch($this->listing->variant_id);
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'X-Shopify-Access-Token' => config('services.shopify.secret')
+        ])->put("https://monsterpro.myshopify.com/admin/api/2021-04/variants/{$this->listing->variant_id}.json", [
+            'variant' => [
+                'id' => $this->listing->variant_id,
+                'price' => $this->listing->price / 100,
+                'compare_at_price' => 0,
+            ]
+        ]);
+        if ($response->status() === 200) {
+            $this->listing->discount_price = null;
+            $this->listing->save();
+        }
     }
 
     public function render()

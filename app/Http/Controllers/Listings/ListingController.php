@@ -14,7 +14,14 @@ class ListingController extends Controller
 
     public function index()
     {
-        $listings = Listing::paginate(25);
+        if ($query = request()->search) {
+            $listings = Listing::where('sku', 'LIKE', '%' . $query . '%')
+                ->paginate(25)
+                ->appends(request()->query());
+        } else {
+            $listings = Listing::paginate(25);
+        }
+
         return view('listings.index', compact('listings'));
     }
 
