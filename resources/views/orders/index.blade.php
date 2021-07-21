@@ -10,7 +10,7 @@
         <x-link route="{{ route('orders.upload') }}">
             Upload
         </x-link>
-        <form action="{{ route('listings.index') }}" method="GET" class="flex flex-row items-center space-x-4">
+        <form action="#" method="GET" class="flex flex-row items-center space-x-4">
             <input type="text" name="search"
                 class="px-4 py-2 ring-1 ring-inset ring-red-100 hover:bg-yellow-200 focus:bg-yellow-200 focus:ring-yellow-500 transition ease-in-out duration-300 focus:outline-none bg-yellow-100"
                 autocomplete="off" placeholder="SEARCH">
