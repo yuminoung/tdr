@@ -14,8 +14,8 @@ class UserFactory extends Factory
     {
         return [
             'name' => 'Oung',
-            'username' => 'yuo',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'username' => 'tdr',
+            'password' => bcrypt('tdrmoto@2021'), // password
             'remember_token' => null,
         ];
     }

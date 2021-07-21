@@ -43,7 +43,7 @@ class Discount extends Component
             'variant' => [
                 'id' => $this->listing->variant_id,
                 'price' => $this->listing->price / 100,
-                'compare_at_price' => 0,
+                'compare_at_price' => null,
             ]
         ]);
         if ($response->status() === 200) {

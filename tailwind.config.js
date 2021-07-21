@@ -17,6 +17,10 @@ module.exports = {
         'caveat': ['Caveat', 'cursive'],
         'satisfy': ['Satisfy', 'cursive'],
         'inconsolate': ['Inconsolata', 'monospace']
+      },
+      width: {
+        '1/8': '12.5%',
+        '2/8': '25%'
       }
     },
   },

@@ -1,4 +1,4 @@
 <button
-    class="flex flex-row items-center space-x-2 border bg-white p-2 focus:border-gray-600 transition ease-in-out duration-300 focus:outline-none">
+    class="bg-yellow-100 ring-1 ring-inset ring-red-100 hover:bg-yellow-200 p-2 focus:ring-yellow-500 transition ease-in duration-300 focus:outline-none">
     {{$slot}}
 </button>

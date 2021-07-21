@@ -1,69 +1,70 @@
 <header class="bg-white shadow mb-4">
-    <div class="flex flex-row items-center justify-between">
+    <div class="flex flex-row items-center justify-between mx-4">
         <div class="flex flex-row items-center">
-            <a href="{{ route('dashboard.index') }}" class="block p-4 hover:bg-gray-600 hover:text-white text">
+            <a href="{{ route('dashboard.index') }}" class="block p-4 focus-link hover:bg-yellow-200 text">
                 Dashboard
             </a>
-            <a href="{{ route('listings.index') }}" class="block p-4 hover:bg-gray-600 hover:text-white text">
+            <a href="{{ route('listings.index') }}" class="block p-4 hover:bg-yellow-200 text">
                 Listings
             </a>
-            {{-- <div x-data="{ open: false }">
-                <a @mouseover="open = true" href="#"
-                    class="block p-4 hover:bg-gray-600 hover:text-white text">Orders</a>
-                <ul class="list-none absolute bg-white shadow rounded-b text-lg" x-show="open"
-                    @mouseover.away="open = false" x-transition:enter="transition ease-out duration-75"
-                    x-transition:enter-start="opacity-0 transform scale-90"
-                    x-transition:enter-end="opacity-100 transform scale-100"
-                    x-transition:leave="transition ease-in duration-75"
-                    x-transition:leave-start="opacity-100 transform scale-100"
-                    x-transition:leave-end="opacity-0 transform scale-90">
-                    <li>
-                        <a href="" class="p-4 hover:bg-gray-600 hover:text-white block">
-                            Catch
-                        </a>
-                        <a href="" class="p-4 hover:bg-gray-600 hover:text-white block">
-                            Ebay
-                        </a>
-                        <a href="" class="p-4 hover:bg-gray-600 hover:text-white block">
-                            Kogan
-                        </a>
-                        <a href="" class="p-4 hover:bg-gray-600 hover:text-white block">
-                            Shopify
-                        </a>
-                    </li>
-                </ul>
-            </div> --}}
+            <a href="{{ route('orders.index') }}" class="block p-4 hover:bg-yellow-200 text">
+                Orders
+            </a>
             <div x-data="{ open: false }" class="relative">
                 <a @mouseover="open = true" href="{{ route('products.index') }}"
-                    class="block p-4 hover:bg-gray-600 hover:text-white text">
+                    class="block p-4 hover:bg-yellow-200 text">
                     Products
                 </a>
-                <ul class="list-none absolute bg-white shadow rounded-b text-lg w-full" x-show="open"
-                    @mouseover.away="open = false" x-transition:enter="transition ease-out duration-75"
-                    x-transition:enter-start="opacity-0 transform scale-90"
-                    x-transition:enter-end="opacity-100 transform scale-100"
-                    x-transition:leave="transition ease-in duration-75"
-                    x-transition:leave-start="opacity-100 transform scale-100"
-                    x-transition:leave-end="opacity-0 transform scale-90">
-                    <li>
-                        <a href="{{ route('products.create') }}" class="p-4 hover:bg-gray-600 hover:text-white block">
-                            Add
+                <ul class="list-none absolute w-48" x-show.transition="open" @mouseover.away="open = false">
+                    <li class="p-1"></li>
+                    <li class="bg-yellow-100">
+                        <a href="{{ route('products.create') }}"
+                            class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                            <x-icons.add />
+                            <div>
+                                Create
+                            </div>
                         </a>
-                        <a href="{{ route('products.import') }}" class="p-4 hover:bg-gray-600 hover:text-white block">
-                            Import
+                    </li>
+                    <li class="bg-yellow-100">
+                        <a href="{{ route('products.import') }}"
+                            class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                            <x-icons.upload />
+                            <div>
+                                Upload
+                            </div>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="flex flex-row items-center">
-            <div class="p-4">
-                <x-icons.moon />
-            </div>
-            <a href="" class="text p-4 block hover:bg-gray-600 hover:text-white">
+        <div x-data="{ open: false }" class="relative">
+            <div @mouseover="open = true" class="block p-4 hover:bg-yellow-200 cursor-pointer">
                 {{ auth()->user()->name }}
-            </a>
+            </div>
+            <ul class="list-none absolute w-48 right-0" x-show.transition="open" @mouseover.away="open = false">
+                <li class="p-1"></li>
+                <li class="bg-yellow-100">
+                    <a href="{{ route('products.create') }}"
+                        class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                        <x-icons.user />
+                        <div>
+                            Profile
+                        </div>
+                    </a>
+                </li>
+                <li class="bg-yellow-100 cursor-pointer" onclick="event.preventDefault();
+                document.getElementById('logout').submit();">
+                    <form action="{{ route('logout') }}" id="logout" method="POST"
+                        class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                        <x-icons.logout />
+                        <div>
+                            Logout
+                        </div>
+                        @csrf
+                    </form>
+                </li>
+            </ul>
         </div>
-
     </div>
 </header>

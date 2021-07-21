@@ -15,6 +15,11 @@ class Listing extends Model
         return $this->belongsToMany(Product::class);
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
@@ -23,5 +28,10 @@ class Listing extends Model
     public function shopify()
     {
         return $this->hasOne(ShopifyListing::class);
+    }
+
+    public function kogan()
+    {
+        return $this->hasOne(KoganListing::class);
     }
 }

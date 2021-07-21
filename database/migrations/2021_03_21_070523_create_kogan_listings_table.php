@@ -18,13 +18,13 @@ class CreateKoganListingsTable extends Migration
             $table->foreignId('listing_id');
             $table->string('title');
             $table->string('brand');
-            $table->integer('category');
-            $table->string('stock');
+            $table->string('category');
             $table->string('subtitle');
             $table->text('inbox');
+            $table->integer('rrp');
+            $table->integer('stock');
             $table->integer('price');
             $table->integer('shipping');
-            $table->integer('rrp')->nullable();
             $table->timestamps();
         });
     }

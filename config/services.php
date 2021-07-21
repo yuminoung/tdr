@@ -32,7 +32,9 @@ return [
 
     'shopify' => [
         'key' => env('SHOPIFY_API'),
-        'secret' => env('SHOPIFY_PASSWORD')
+        'secret' => env('SHOPIFY_PASSWORD'),
+        'url' => env('SHOPIFY_URL'),
+        'location_id' => env('SHOPIFY_LOCATION_ID')
     ],
 
     'kogan' => [

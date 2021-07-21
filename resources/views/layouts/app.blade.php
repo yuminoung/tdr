@@ -18,9 +18,9 @@
 
 </head>
 
-<body class="bg-gray-100 text-xl font-inconsolate">
+<body class="bg-gray-50 text-xl font-inconsolate">
     @include('layouts.header')
-    <main class="mx-4 flex flex-col space-y-4">
+    <main class="mx-12 flex flex-col space-y-4">
         @yield('content')
     </main>
     <footer class="my-4 px-4 font-satisfy text-center">

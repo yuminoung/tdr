@@ -4,7 +4,6 @@ namespace App\Jobs\Listings;
 
 use App\Models\Listing;
 use App\Models\Product;
-use App\Models\ShopifyListing;
 use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Http;
