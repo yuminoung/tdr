@@ -23,9 +23,9 @@
     <main class="mx-12 flex flex-col space-y-4">
         @yield('content')
     </main>
-    <footer class="my-4 px-4 font-satisfy text-center">
+    {{-- <footer class="my-4 px-4 font-satisfy text-center">
         Developed by Oung
-    </footer>
+    </footer> --}}
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     @livewireScripts

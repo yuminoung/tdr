@@ -4,6 +4,9 @@
             <a href="{{ route('dashboard.index') }}" class="block p-4 focus-link hover:bg-yellow-200 text">
                 Dashboard
             </a>
+            <a href="{{ route('issues.index') }}" class="block p-4 focus-link hover:bg-yellow-200 text">
+                Issues
+            </a>
             <a href="{{ route('listings.index') }}" class="block p-4 hover:bg-yellow-200 text">
                 Listings
             </a>
@@ -11,15 +14,13 @@
                 Orders
             </a>
             <div x-data="{ open: false }" class="relative">
-                <a @mouseover="open = true" href="{{ route('products.index') }}"
-                    class="block p-4 hover:bg-yellow-200 text">
+                <a @mouseover="open = true" href="{{ route('products.index') }}" class="block p-4 hover:bg-yellow-200 text">
                     Products
                 </a>
                 <ul class="list-none absolute w-48" x-show.transition="open" @mouseover.away="open = false">
                     <li class="p-1"></li>
                     <li class="bg-yellow-100">
-                        <a href="{{ route('products.create') }}"
-                            class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                        <a href="{{ route('products.create') }}" class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
                             <x-icons.add />
                             <div>
                                 Create
@@ -27,8 +28,7 @@
                         </a>
                     </li>
                     <li class="bg-yellow-100">
-                        <a href="{{ route('products.import') }}"
-                            class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                        <a href="{{ route('products.import') }}" class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
                             <x-icons.upload />
                             <div>
                                 Upload
@@ -45,8 +45,7 @@
             <ul class="list-none absolute w-48 right-0" x-show.transition="open" @mouseover.away="open = false">
                 <li class="p-1"></li>
                 <li class="bg-yellow-100">
-                    <a href="{{ route('products.create') }}"
-                        class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                    <a href="{{ route('products.create') }}" class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
                         <x-icons.user />
                         <div>
                             Profile
@@ -55,8 +54,7 @@
                 </li>
                 <li class="bg-yellow-100 cursor-pointer" onclick="event.preventDefault();
                 document.getElementById('logout').submit();">
-                    <form action="{{ route('logout') }}" id="logout" method="POST"
-                        class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                    <form action="{{ route('logout') }}" id="logout" method="POST" class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
                         <x-icons.logout />
                         <div>
                             Logout

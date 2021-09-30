@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IssueController;
 use App\Http\Controllers\Listings\KoganListingController;
 use App\Http\Controllers\Listings\ListingController;
 use App\Http\Controllers\Listings\ShopifyLisitingController;
@@ -72,3 +73,7 @@ Route::post('/orders/tracking-upload', [OrderController::class, 'trackingUpload'
     ->name('orders.tracking-upload');
 Route::post('/orders', [OrderController::class, 'fetch'])
     ->name('orders.fetch');
+
+Route::get('/issues', [IssueController::class, 'index'])->name('issues.index');
+Route::post('/issues', [IssueController::class, 'store'])->name('issues.store');
+Route::patch('/issues/{issue}', [IssueController::class, 'update'])->name('issues.update');

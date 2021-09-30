@@ -12,11 +12,6 @@ class UserFactory extends Factory
 
     public function definition()
     {
-        return [
-            'name' => 'Oung',
-            'username' => 'tdr',
-            'password' => bcrypt('tdrmoto@2021'), // password
-            'remember_token' => null,
-        ];
+        return ['name' => 'Oung','username' => 'tdr','password' => bcrypt('tdrmoto@2021'),'remember_token' => null];
     }
 }
