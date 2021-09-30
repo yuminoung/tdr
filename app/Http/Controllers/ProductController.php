@@ -10,6 +10,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     public function index()
     {
         if ($query = request()->search) {

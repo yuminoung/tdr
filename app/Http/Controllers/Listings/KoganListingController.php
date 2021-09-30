@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Http;
 
 class KoganListingController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     public function index()
     {
         // $products = Http::withHeaders([

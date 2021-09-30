@@ -10,6 +10,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     public function index()
     {
         $orders = Order::orderBy('processed_at', 'desc')->paginate(50);
