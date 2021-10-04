@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
-use Illuminate\Http\Request;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class IssueController extends Controller
 {
@@ -14,20 +15,41 @@ class IssueController extends Controller
 
     public function index()
     {
-        $issues = Issue::latest()->paginate(50);
+        if ($query = request()->search) {
+            $issues = Issue::where('sku', 'LIKE', '%' . $query . '%')
+                ->orWhere('name', 'LIKE', '%' . $query . '%')
+                ->orWhere('order_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('phone', 'LIKE', '%' . $query . '%')
+                ->with('images')
+                ->latest()
+                ->paginate(25);
+            // ->appends(request()->query());
+        } else {
+            $issues = Issue::with('images')->latest()->paginate(25);
+        }
+
         return view('issues.index', compact('issues'));
     }
 
     public function store()
     {
-        $attributes = request()->validate([
+        request()->validate([
             'sku' => 'required',
             'issue' => 'required',
             'name' => 'nullable',
             'phone' => 'nullable',
-            'platform' => 'required'
+            'order_id' => 'nullable',
+            'images' => 'nullable',
+            'images.*' => 'mimes:jpeg,png|max:10240'
         ]);
-        Issue::create($attributes);
+        $issue = Issue::create(request()->only(['sku', 'issue', 'name', 'phone', 'order_id']));
+
+        if (request('images')) {
+            foreach (request('images') as $image) {
+                $path = Storage::putFile('images/issues', new File($image));
+                $issue->images()->create(['source' => $path]);
+            }
+        }
         return redirect()->route('issues.index');
     }
 
@@ -35,6 +57,10 @@ class IssueController extends Controller
     {
         $issue->closed = !$issue->closed;
         $issue->save();
+        if (request()->search) {
+            return redirect()->route('issues.index', ['search' => request()->search]);
+        }
+
         return redirect()->route('issues.index');
     }
 }

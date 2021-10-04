@@ -9,5 +9,10 @@
         @apply list-disc;
         @apply list-inside;
     }
+    .focus-animation {
+        @apply focus:ring focus:ring-yellow-500 transition ease-in duration-300 focus:outline-none;
+    }
 }
+
+
 

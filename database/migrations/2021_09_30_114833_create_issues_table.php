@@ -12,9 +12,9 @@ class CreateIssuesTable extends Migration
             $table->id();
             $table->string('sku');
             $table->text('issue');
-            $table->string('platform');
             $table->boolean('closed')->default(false);
             $table->string('name')->nullable();
+            $table->string('order_id')->nullable();
             $table->string('phone')->nullable();
             $table->timestamps();
         });

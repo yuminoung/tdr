@@ -20,10 +20,10 @@
 
 <body class="bg-gray-50 text-xl font-inconsolate">
     @include('layouts.header')
-    <main class="mx-12 flex flex-col space-y-4">
+    <main class="mx-12 flex flex-col space-y-4 mb-8">
         @yield('content')
     </main>
-    {{-- <footer class="my-4 px-4 font-satisfy text-center">
+    {{-- <footer class="p-4 font-satisfy text-center">
         Developed by Oung
     </footer> --}}
     <script src="{{ asset('js/app.js') }}"></script>

@@ -10,4 +10,9 @@ class Issue extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
