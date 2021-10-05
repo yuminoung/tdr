@@ -10,10 +10,18 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->text('sku')->nullable();
-            $table->longText('description')->nullable();
-            $table->text('variant')->nullable();
-            $table->string('upc')->nullable();
+            $table->text('sku');
+            $table->string('title');
+            $table->longText('description');
+            $table->string('category');
+            $table->string('platform');
+            $table->string('price');
+            $table->integer('stock');
+            $table->string('shipping');
+            $table->text('images')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('product_inbox')->nullable();
+            $table->string('gtin')->nullable();
             $table->integer('weight')->nullable();
             $table->timestamps();
         });

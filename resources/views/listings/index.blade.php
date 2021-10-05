@@ -2,78 +2,74 @@
 
 @section('content')
 <x-page-header title="LISTINGS">
-    {{-- <form action="{{ route('listings.shopify.sync') }}" method="POST">
-    <button class="bg-white rounded shadow px-4 py-2">
-        Sync
-    </button>
-    @csrf
-    </form> --}}
-    <form action="{{ route('listings.index') }}" method="GET" class="flex flex-row items-center space-x-4">
-        <input type="text" name="search"
-            class="px-4 py-2 ring-1 ring-inset ring-red-100 hover:bg-yellow-200 focus:bg-yellow-200 focus:ring-yellow-500 transition ease-in-out duration-300 focus:outline-none bg-yellow-100"
-            autocomplete="off" placeholder="SEARCH">
+    <form action="{{ route('listings.index') }}" method="GET" class="flex flex-row space-x-4">
+        <input type="text" name="search" class="w-full p-4 shadow rounded focus-animation" placeholder="Search" value="{{ request()->search }}">
         <button
-            class="bg-yellow-100 ring-1 ring-inset ring-red-100 hover:bg-yellow-200 p-2 focus:ring-yellow-500 transition ease-in duration-300 focus:outline-none">
+            class="bg-yellow-100 p-4 rounded shadow focus-animation">
             <x-icons.search />
         </button>
     </form>
 </x-page-header>
 
-<div class="flex flex-col bg-white shadow rounded divide-y divide-gray-200">
+<div class="grid grid-cols-1 bg-white shadow rounded divide-y divide-gray-100">
+    <div class="flex flex-row items-center font-bold bg-gray-100">
+        <div class="p-4 w-8/12">
+            Product
+        </div>
+        <div class="p-4 w-1/12">
+            Stock
+        </div>
+        <div class="p-4 w-1/12">
+            Price
+        </div>
+        <div class="p-4 w-1/12">
+            Shipping
+        </div>
+        <div class="p-4 w-1/12">
+            Platform
+        </div>
+    </div>
     @foreach($listings as $listing)
-    <div class="flex flex-row hover:bg-yellow-200 items-start">
-        <a class="w-64 block p-4 break-all" href="{{ route('listings.show', $listing) }}">
-            {{$listing->sku}}
-        </a>
-        <div class="flex flex-col w-full space-y-2 p-4">
-            <div class="flex flex-row justify-between">
-                <div class="flex flex-row space-x-4 items-center">
-                    <div>
-                        <x-icons.catch />
-                    </div>
-                    <div>
-                        123
-                    </div>
+    <div class="flex flex-row">
+        <div class="flex flex-row p-4 w-8/12 items-center space-x-4">
+            <img src="{{ $listing->images }}" class="w-20 h-20" loading="lazy" alt="">
+            <div class="space-y-2 flex flex-col">
+                <div>
+                    {{$listing->sku}}
                 </div>
-                <div class="flex flex-row items-center text-base space-x-4">
-                    <a href="#">Edit</a>
-                    <a href="#">View</a>
+                <div>
+                    {{$listing->title}}
                 </div>
             </div>
-            <div class="flex flex-row justify-between">
-                <div class="flex flex-row space-x-4 items-center">
-                    <div>
-                        <x-icons.kogan />
-                    </div>
-                    <div>
-                        {{$listing->title}}
-                    </div>
-                </div>
-                <div class="flex flex-row items-center text-base space-x-4">
-                    <a href="#">Edit</a>
-                    <a href="#">View</a>
-                </div>
-            </div>
-            @if($listing->shopify)
-            <div class="flex flex-row justify-between">
-                <div class="flex flex-row space-x-4 items-center">
-                    <div>
-                        <x-icons.shopify />
-                    </div>
-                    <div>
-                        {{$listing->shopify->title}}
-                    </div>
-                </div>
-                <div class="flex flex-row items-center text-base space-x-4">
-                    @livewire('shopify.discount', ['listing' => $listing->shopify], key($listing->shopify->id))
-                    <a href="#">Edit</a>
-                    <a href="#">View</a>
-                </div>
-            </div>
+        </div>
+        <div class="p-4 w-1/12">
+            {{$listing->stock}}
+        </div>
+        <div class="p-4 w-1/12">
+            ${{$listing->price}}
+        </div>
+        <div class="p-4 w-1/12">
+            {{$listing->shipping}}
+        </div>
+        <div class="p-4 w-1/12">
+            @if ($listing->stock != 0)
+            @if($listing->gtin)
+            <a class="px-4 py-2 bg-yellow-50 shadow rounded focus-animation" target="_blank" href="https://www.kogan.com/au/shop/?q={{ $listing->gtin }}">
+                {{$listing->platform}}
+            </a>
+            @else
+            <a class="px-4 py-2 bg-yellow-50 shadow rounded focus-animation" target="_blank" href="https://www.kogan.com/au/shop/?q={{ $listing->title }}">
+                {{$listing->platform}}
+            </a>
+            @endif
             @endif
         </div>
     </div>
+
     @endforeach
 </div>
+
 {{ $listings->links() }}
+
+
 @endsection

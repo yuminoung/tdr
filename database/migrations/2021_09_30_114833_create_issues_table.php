@@ -10,6 +10,7 @@ class CreateIssuesTable extends Migration
     {
         Schema::create('issues', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('sku');
             $table->text('issue');
             $table->boolean('closed')->default(false);

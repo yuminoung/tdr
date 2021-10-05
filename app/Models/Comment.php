@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KoganListing extends Model
+class Comment extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function listings()
+    public function commentable()
     {
-        return $this->belongsTo(Listing::class);
+        return $this->morphTo();
     }
 }

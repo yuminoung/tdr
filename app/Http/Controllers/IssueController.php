@@ -21,14 +21,19 @@ class IssueController extends Controller
                 ->orWhere('order_id', 'LIKE', '%' . $query . '%')
                 ->orWhere('phone', 'LIKE', '%' . $query . '%')
                 ->with('images')
+                ->with('comments')
                 ->latest()
                 ->paginate(25);
-            // ->appends(request()->query());
         } else {
-            $issues = Issue::with('images')->latest()->paginate(25);
+            $issues = Issue::with('images')->with('comments')->latest()->paginate(25);
         }
 
         return view('issues.index', compact('issues'));
+    }
+
+    public function create()
+    {
+        return view('issues.create');
     }
 
     public function store()
@@ -42,7 +47,7 @@ class IssueController extends Controller
             'images' => 'nullable',
             'images.*' => 'mimes:jpeg,png|max:10240'
         ]);
-        $issue = Issue::create(request()->only(['sku', 'issue', 'name', 'phone', 'order_id']));
+        $issue = auth()->user()->issues()->create(request()->only(['sku', 'issue', 'name', 'phone', 'order_id']));
 
         if (request('images')) {
             foreach (request('images') as $image) {
