@@ -12,7 +12,7 @@
     <a href="{{ route('issues.create') }}" class="p-4 shadow rounded focus-animation bg-yellow-100">
         Create
     </a>
-    <a href="{{ route('issues.download') }}" class="p-4 shadow rounded focus-animation bg-yellow-100">
+    <a href="{{ route('issues.download.index') }}" class="p-4 shadow rounded focus-animation bg-yellow-100">
         Download
     </a>
 </x-page-header>

@@ -59,5 +59,5 @@ Route::post('/issues', [IssueController::class, 'store'])->name('issues.store');
 Route::patch('/issues/{issue}', [IssueController::class, 'update'])->name('issues.update');
 Route::post('/issues/{issue}/comments', [CommentController::class, 'store'])->name('issues.comments.store');
 
-Route::get('/issues/download', [IssueDownloadController::class, 'index'])->name('issues.download');
+Route::get('/issues/download', [IssueDownloadController::class, 'index'])->name('issues.download.index');
 Route::post('/issues/download', [IssueDownloadController::class, 'download'])->name('issues.download');
