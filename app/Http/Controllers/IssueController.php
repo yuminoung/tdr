@@ -39,7 +39,7 @@ class IssueController extends Controller
     public function store()
     {
         request()->validate([
-            'sku' => 'required',
+            'sku' => 'required|exists:products,sku',
             'issue' => 'required',
             'name' => 'nullable',
             'phone' => 'nullable',

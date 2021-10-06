@@ -13,7 +13,10 @@
             <a href="{{ route('orders.index') }}" class="block p-4 hover:bg-yellow-200 text">
                 Orders
             </a>
-            <div x-data="{ open: false }" class="relative">
+            <a href="{{ route('products.index') }}" class="block p-4 hover:bg-yellow-200 text">
+                Products
+            </a>
+            {{-- <div x-data="{ open: false }" class="relative">
                 <a @mouseover="open = true" href="{{ route('products.index') }}" class="block p-4 hover:bg-yellow-200 text">
                     Products
                 </a>
@@ -36,7 +39,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
         <div x-data="{ open: false }" class="relative">
             <div @mouseover="open = true" class="block p-4 hover:bg-yellow-200 cursor-pointer">
@@ -45,7 +48,7 @@
             <ul class="list-none absolute w-48 right-0" x-show.transition="open" @mouseover.away="open = false">
                 <li class="p-1"></li>
                 <li class="bg-yellow-100">
-                    <a href="{{ route('products.create') }}" class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
+                    <a href="#" class="p-4 hover:bg-yellow-200 flex flex-row space-x-4 items-center">
                         <x-icons.user />
                         <div>
                             Profile

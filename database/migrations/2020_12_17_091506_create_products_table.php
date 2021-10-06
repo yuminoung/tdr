@@ -10,9 +10,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('sku');
+            $table->string('sku')->unique();
             $table->string('name')->nullable();
+            $table->integer('cost')->nullable();
             $table->string('area')->nullable();
+            $table->string('supplier')->nullable();
             $table->integer('stock')->nullable();
             $table->integer('weight')->nullable();
             $table->timestamps();

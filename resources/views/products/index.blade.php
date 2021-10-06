@@ -2,71 +2,66 @@
 
 @section('content')
 <x-page-header title="PRODUCTS">
-    <a href="{{ route('dashboard.index') }}">Dashboard</a>
-    <span>/</span>
-    <a href="{{ route('products.index') }}">Products</a>
+    <form action="{{ route('products.index') }}" method="GET" class="flex flex-row space-x-4">
+        <input type="text" name="search" class="w-full p-4 shadow rounded focus-animation" placeholder="Search" value="{{ request()->search }}">
+        <button
+            class="bg-yellow-100 p-4 rounded shadow focus-animation">
+            <x-icons.search />
+        </button>
+    </form>
 </x-page-header>
-<div class="flex flex-row justify-between">
-    <x-link :route="route('products.create')">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-    </x-link>
-    <x-search />
-</div>
-
-<div class="flex flex-col bg-white shadow divide-y divide-gray-200">
-    <div class="p-4 flex bg-gray-700 text-white flex-row space-x-4">
-        <div class="w-1/6">
+<div class="grid grid-cols-1 bg-white shadow rounded divide-y divide-gray-100">
+    <div class="flex flex-row items-center font-bold bg-gray-100">
+        <div class="p-4 w-1/12">
             SKU
         </div>
-        <div class="w-1/6">
-            NAME
+        <div class="p-4 w-4/12">
+            Name
         </div>
-        <div class="w-1/6 text-right">
-            STOCK
+        <div class="p-4 w-2/12">
+            Cost
         </div>
-        <div class="w-1/6 text-right">
-            AREA
+        <div class="p-4 w-1/12">
+            Stock
         </div>
-        <div class="w-1/6 text-right">
-            WEIGHT
+        <div class="p-4 w-1/12">
+            Weight
         </div>
-        <div class="w-1/6"></div>
+        <div class="p-4 w-1/12">
+            Area
+        </div>
+        <div class="p-4 w-2/12">
+            Supplier
+        </div>
     </div>
     @foreach($products as $product)
-    <div class="p-4 flex flex-row hover:bg-yellow-200 space-x-4 items-center">
-        <div class="w-1/6">
+    <div class="flex flex-row">
+        <div class="p-4 w-1/12 text-blue-700">
+            <a href="{{ route('listings.index', ['search' => $product->sku]) }}">
             {{$product->sku}}
+            </a>
         </div>
-        <div class="w-1/6">
+        <div class="p-4 w-4/12">
             {{$product->name}}
         </div>
-        <div class="w-1/6 text-right">
-            @if($product->stock == 0)
-            <span class="text-red-600">
-                Out of stock
-            </span>
-            @else
-            {{$product->stock}}
-            @endif
+        <div class="p-4 w-2/12">
+            {{$product->presentCost()}}
         </div>
-        <div class="w-1/6 text-right">
+        <div class="p-4 w-1/12">
+            {{$product->stock}}
+        </div>
+        <div class="p-4 w-1/12">
+            {{$product->presentWeight()}}
+        </div>
+        <div class="p-4 w-1/12">
             {{$product->area}}
         </div>
-        <div class="w-1/6 text-right">
-            {{$product->weight}}
-        </div>
-        <div class="w-1/6 justify-end space-x-4 flex flex-row items-center">
-            <a href="#" class="p-2 bg-gray-600 text-white text-sm">Edit</a>
-            <a href="#" class="p-2 bg-gray-600 text-white text-sm">View</a>
+        <div class="p-4 w-2/12">
+            {{$product->supplier}}
         </div>
     </div>
+
     @endforeach
 </div>
-
-<div class="my-8">
-    {{ $products->links() }}
-</div>
+{{ $products->links() }}
 @endsection

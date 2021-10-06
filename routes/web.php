@@ -3,10 +3,12 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IssueController;
+use App\Http\Controllers\IssueDownloadController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Imports\KoganImport;
+use App\Imports\ProductImport;
 use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -15,7 +17,7 @@ Route::get('/', [DashboardController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard.index');
 
-# LISTING
+# LISTINGS
 Route::get('/listings', [ListingController::class, 'index'])
     ->name('listings.index');
 Route::get('/listings/upload', function () {
@@ -28,17 +30,15 @@ Route::post('/listings/upload', function () {
 
 
 # PRODUCTS
-Route::get('products/import', [ProductController::class, 'import'])->name('products.import');
-Route::post('products/import', [ProductController::class, 'importStore'])->name('products.import.store');
 Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index');
-Route::get('products/create', function () {
-    return 'under construction';
-})->name('products.create');
-Route::get('products/{product}', [ProductController::class, 'show'])
-    ->name('products.show');
-Route::get('products/{product}/edit', [ProductController::class, 'edit'])
-    ->name('products.edit');
+Route::get('/products/upload', function () {
+    return view('products.upload');
+});
+Route::post('/products/upload', function () {
+    Excel::import(new ProductImport, request()->file('file'));
+    return redirect()->route('products.index');
+})->name('products.upload');
 
 # ORDERS
 Route::get('/orders', [OrderController::class, 'index'])
@@ -52,9 +52,12 @@ Route::post('/orders/tracking-upload', [OrderController::class, 'trackingUpload'
 Route::post('/orders', [OrderController::class, 'fetch'])
     ->name('orders.fetch');
 
-// Issues
+// ISSUES
 Route::get('/issues', [IssueController::class, 'index'])->name('issues.index');
 Route::get('/issues/create', [IssueController::class, 'create'])->name('issues.create');
 Route::post('/issues', [IssueController::class, 'store'])->name('issues.store');
 Route::patch('/issues/{issue}', [IssueController::class, 'update'])->name('issues.update');
 Route::post('/issues/{issue}/comments', [CommentController::class, 'store'])->name('issues.comments.store');
+
+Route::get('/issues/download', [IssueDownloadController::class, 'index'])->name('issues.download');
+Route::post('/issues/download', [IssueDownloadController::class, 'download'])->name('issues.download');

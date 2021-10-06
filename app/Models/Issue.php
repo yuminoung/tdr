@@ -25,4 +25,9 @@ class Issue extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

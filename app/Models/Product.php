@@ -21,8 +21,18 @@ class Product extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
-    public function presentPrice()
+    public function issues()
     {
-        return '$' . $this->price / 100;
+        return $this->hasMany(Issue::class);
+    }
+
+    public function presentCost()
+    {
+        return '$' . $this->cost / 100;
+    }
+
+    public function presentWeight()
+    {
+        return $this->weight / 1000 . 'kg';
     }
 }
