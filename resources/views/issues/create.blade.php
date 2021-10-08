@@ -20,10 +20,33 @@
         <input name="order_id" type="text" class="w-full p-4 shadow rounded focus-animation" placeholder="Order ID (optional)">
         <input type="text" class="w-full p-4 shadow rounded focus-animation" name="name" placeholder="Name (optional)">
         <input name="phone" type="text" class="w-full p-4 shadow rounded focus-animation" placeholder="Phone (optional)">
-        <input name="images[]" type="file" class="w-full p-4 shadow rounded focus-animation" multiple>
+        <input type="file" id="images" name="images[]" class="filepond shadow rounded-lg">
         <button class="p-4 shadow rounded bg-white focus-animation">Create</button>
         @csrf
     </form>
 </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    const inputElement = document.querySelector('input[type="file"]');
+    FilePond.create(inputElement);
+    FilePond.setOptions({
+        allowMultiple: true,
+        maxParallelUploads: 1,
+        acceptedFileTypes: ['image/png', 'image/jpeg'],
+        maxFiles: 10,
+        maxFileSize: '10MB',
+        server: {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            process: '/issues/filepond/process',
+            revert: '/issues/filepond/revert',
+            // restore: '/upload/restore/'
+        },
+    });
+</script>
+@endpush

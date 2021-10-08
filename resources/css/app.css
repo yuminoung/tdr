@@ -1,8 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '~filepond/dist/filepond.min.css';
 
-
+.filepond--credits {
+    display: none;
+}
+.filepond--panel-root {
+    background-color: #fff;
+}
+.filepond--root {
+    font-family: 'Inconsolata';
+}
 
 @layer components {
     ul {

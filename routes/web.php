@@ -58,6 +58,8 @@ Route::get('/issues/create', [IssueController::class, 'create'])->name('issues.c
 Route::post('/issues', [IssueController::class, 'store'])->name('issues.store');
 Route::patch('/issues/{issue}', [IssueController::class, 'update'])->name('issues.update');
 Route::post('/issues/{issue}/comments', [CommentController::class, 'store'])->name('issues.comments.store');
-
 Route::get('/issues/download', [IssueDownloadController::class, 'index'])->name('issues.download.index');
 Route::post('/issues/download', [IssueDownloadController::class, 'download'])->name('issues.download');
+
+Route::post('/issues/filepond/process', [IssueController::class, 'filepondProcess'])
+    ->name('issues.filepond-process');
