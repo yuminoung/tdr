@@ -36,7 +36,7 @@
         allowMultiple: true,
         maxParallelUploads: 1,
         acceptedFileTypes: ['image/png', 'image/jpeg'],
-        maxFiles: 10,
+        maxFiles: 5,
         maxFileSize: '10MB',
         server: {
             method: 'POST',

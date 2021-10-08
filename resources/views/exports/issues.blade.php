@@ -18,9 +18,6 @@
             <td>{{ $issue->sku }}</td>
             <td>{{ App\Models\Product::where('sku', $issue->sku)->first()->supplier ?? '' }}</td>
             <td>{{ $issue->issue }}</td>
-            @foreach($issue->images as $index=>$image)
-            <td><a href="{{ asset($image->source) }}">Image {{ $index }}</a></td>
-            @endforeach
         </tr>
     @endforeach
     </tbody>
