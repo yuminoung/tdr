@@ -11,6 +11,7 @@ window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.FilePond = require('filepond');
+window.FilePondPluginFileValidateType = require('filepond-plugin-file-validate-type');
 
 
 /**
