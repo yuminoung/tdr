@@ -41,7 +41,7 @@ class IssueExport implements FromView, WithColumnWidths, WithDrawings, WithEvent
                 $drawing = new Drawing();
                 $drawing->setPath(storage_path('app/' . $image->source));
                 $drawing->setHeight(100);
-                $drawing->setCoordinates($coords[$j] . $i + 2);
+                $drawing->setCoordinates($coords[$j] . ($i + 2));
                 $drawings[] = $drawing;
             }
         }
