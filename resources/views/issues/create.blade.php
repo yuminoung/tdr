@@ -31,10 +31,10 @@
 @push('scripts')
 <script>
     const inputElement = document.querySelector('input[type="file"]');
-    FilePond.registerPlugin(FilePondPluginFileValidateSize);
+    FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.create(inputElement);
     FilePond.setOptions({
-        acceptedFileTypes: ['image/png', 'image/jpeg']
+        acceptedFileTypes: ['image/png', 'image/jpeg'],
         allowMultiple: true,
         maxParallelUploads: 1,
         acceptedFileTypes: ['image/png', 'image/jpeg'],
